@@ -1,0 +1,15 @@
+{
+    "name": "sfxh/stayfoxhole-emails-for-hivepress",
+    "autoload": {
+        "psr-4": {
+            "FoxholeEmails\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "milliephanillie",
+            "email": "me@philiparudy.com"
+        }
+    ],
+    "require": {}
+}
