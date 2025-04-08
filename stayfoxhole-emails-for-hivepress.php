@@ -42,6 +42,28 @@ add_filter(
 	}
 );
 
-class SfxhEmails {}
+require_once 'filters.php';
 
-$sfxhEmails = new SfxhEmails();
+/*** Routes */
+use FoxholeEmails\Routes\SfxhEmailsTestRoute;
+$SfxhEmailsTestRoute = new SfxhEmailsTestRoute();
+add_action('rest_api_init', [$SfxhEmailsTestRoute, 'boot']);
+
+/*** Emails */
+use FoxholeEmails\Emails\SfxhBalanceDue;
+$SfxhBalanceDue = new SfxhBalanceDue();
+add_filter( 'hivepress/v1/emails/sfxh_balance_due', [$SfxhBalanceDue, 'create_body']);
+
+use FoxholeEmails\Emails\SfxhBookingConfirmVendor;
+$SfxhBookingConfirmVendor = new SfxhBookingConfirmVendor();
+add_filter( 'hivepress/v1/emails/booking_confirm_vendor', [$SfxhBookingConfirmVendor, 'create_body']);
+
+use FoxholeEmails\Emails\SfxhBookingConfirmUser;
+$SfxhBookingConfirmUser = new SfxhBookingConfirmUser();
+add_filter( 'hivepress/v1/emails/booking_confirm_user', [$SfxhBookingConfirmUser, 'create_body']);
+
+class SfxhEmails {}
+$SfxhEmails = new SfxhEmails();
+
+use FoxholeEmails\Admin\SfxhEmailsAdminBase;
+$SfxhEmailsAdminBase = new SfxhEmailsAdminBase();
