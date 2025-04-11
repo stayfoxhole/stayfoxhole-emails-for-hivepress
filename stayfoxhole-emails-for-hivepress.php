@@ -67,3 +67,4 @@ $SfxhEmails = new SfxhEmails();
 
 use FoxholeEmails\Admin\SfxhEmailsAdminBase;
 $SfxhEmailsAdminBase = new SfxhEmailsAdminBase();
+

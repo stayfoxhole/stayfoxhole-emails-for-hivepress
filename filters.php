@@ -39,3 +39,17 @@ add_filter(
 		return $meta_boxes;
 	}
 );
+
+add_filter( 'wp_mail_from', function( $original_email_address ) {
+    return 'no-reply@stayfoxhole.com'; 
+});
+
+add_filter( 'wp_mail_from_name', function( $original_email_from ) {
+    return 'STAY FOXHOLE'; 
+});
+
+add_filter( 'hivepress/v1/emails/listing_expire', function($email) {
+	$email['body'] = '';
+
+	return $email;
+});
