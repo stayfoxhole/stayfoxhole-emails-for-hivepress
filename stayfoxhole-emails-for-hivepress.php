@@ -31,6 +31,16 @@ if ( ! defined( 'FOXHOLE_EMAILS_ASSETS_VERSION' ) ) {
     define( 'FOXHOLE_EMAILS_ASSETS_VERSION', '1.0.0' );
 }
 
+/*** PDF Configuration Constants */
+define( 'SFXH_PDF_AUTHOR', 'StayFoxhole' );
+define( 'SFXH_PDF_TITLE', 'StayFoxhole PDF Document' );
+define( 'SFXH_PDF_SUBJECT', 'PDF Created with TCPDF' );
+define( 'SFXH_PDF_KEYWORDS', 'StayFoxhole, TCPDF, HivePress, PDF' );
+define( 'SFXH_PDF_FONT', 'times' );
+define( 'SFXH_PDF_FONT_STYLE', 'BI' );
+define( 'SFXH_PDF_FONT_SIZE', 12 );
+define( 'SFXH_PDF_FILENAME', 'sfxh_document.pdf' );
+
 require_once 'vendor/autoload.php';
 
 add_filter(
@@ -65,6 +75,18 @@ add_filter( 'hivepress/v1/emails/booking_confirm_user', [$SfxhBookingConfirmUser
 class SfxhEmails {}
 $SfxhEmails = new SfxhEmails();
 
+use FoxholeEmails\Includes\Template\SfxhTemplate;
+$SfxhTemplates = new SfxhTemplate();
+
+use FoxholeEmails\Admin\Ajax\SfxhStreamPdf;
+$SfxhStreamPdf = new SfxhStreamPdf();
+
 use FoxholeEmails\Admin\SfxhEmailsAdminBase;
 $SfxhEmailsAdminBase = new SfxhEmailsAdminBase();
+
+add_shortcode('sfxh_pdf_preview', function () {
+    $SfxhPdfPreview = new SfxhPdfPreview();
+    $SfxhPdfPreview->output();
+});
+
 
