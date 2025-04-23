@@ -3,7 +3,7 @@
         'name' => 'sfxh/stayfoxhole-emails-for-hivepress',
         'pretty_version' => 'dev-main',
         'version' => 'dev-main',
-        'reference' => '93fc96c4315e7970104626e46bae937baa80060b',
+        'reference' => 'fb2436561b52581e84fa93ac808be523ad7ceced',
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -274,7 +274,7 @@
         'sfxh/stayfoxhole-emails-for-hivepress' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
-            'reference' => '93fc96c4315e7970104626e46bae937baa80060b',
+            'reference' => 'fb2436561b52581e84fa93ac808be523ad7ceced',
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
@@ -306,6 +306,15 @@
             'install_path' => __DIR__ . '/../symfony/polyfill-php80',
             'aliases' => array(),
             'dev_requirement' => true,
+        ),
+        'tecnickcom/tcpdf' => array(
+            'pretty_version' => '6.9.1',
+            'version' => '6.9.1.0',
+            'reference' => 'ed27e28a4c478f7f4015b5e7e7b1912af9e85f2b',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../tecnickcom/tcpdf',
+            'aliases' => array(),
+            'dev_requirement' => false,
         ),
         'theseer/tokenizer' => array(
             'pretty_version' => '1.2.3',

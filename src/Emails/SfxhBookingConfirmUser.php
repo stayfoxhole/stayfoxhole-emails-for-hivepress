@@ -23,6 +23,8 @@ class SfxhBookingConfirmUser {
 
     public function set_vars($booking_id) {
         $booking = Booking::query()->get_by_id($booking_id);
+        $booking->get_id();
+        
         if (!$booking) {
             error_log("Booking not found for ID: " . $booking_id);
             return false;

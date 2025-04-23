@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Meta Boxes
  * screen: email
@@ -40,16 +39,20 @@ add_filter(
 	}
 );
 
-add_filter( 'wp_mail_from', function( $original_email_address ) {
-    return 'no-reply@stayfoxhole.com'; 
-});
+/**
+ * BLOCKS
+ */
+add_filter( 
+	'hivepress/v1/templates/booking_view_block/blocks', 
+	function( $blocks, $template ) {
+	if (isset( $blocks['booking_container']['blocks']['booking_footer']['blocks']['booking_actions_primary']['blocks'] )) {
+		$blocks['booking_container']['blocks']['booking_footer']['blocks']['booking_actions_primary']['blocks']['pdf_receipt_download'] = [
+			'type'   => 'part',
+			'path'   => 'booking/view/block/pdf-receipt-download',
+			'_order' => 20,
+		];
+	}
 
-add_filter( 'wp_mail_from_name', function( $original_email_from ) {
-    return 'STAY FOXHOLE'; 
-});
+	return $blocks;
+}, 10, 2 );
 
-add_filter( 'hivepress/v1/emails/listing_expire', function($email) {
-	$email['body'] = '';
-
-	return $email;
-});
